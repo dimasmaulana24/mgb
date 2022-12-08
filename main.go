@@ -78,7 +78,7 @@ func main() {
 	defer mongoclient.Disconnect(ctx)
 
 	corsConfig := cors.DefaultConfig()
-	corsConfig.AllowOrigins = []string{"http://localhost:8000", "http://localhost:3000"}
+	corsConfig.AllowOrigins = []string{"https://mgbtest.netlify.app", "http://localhost:3000"}
 	corsConfig.AllowCredentials = true
 
 	server.Use(cors.New(corsConfig))
