@@ -78,7 +78,10 @@ func main() {
 	defer mongoclient.Disconnect(ctx)
 
 	corsConfig := cors.DefaultConfig()
-	corsConfig.AllowOrigins = []string{"https://localhost:8000", "http://localhost:3000"}
+	corsConfig.AllowOrigins = []string{"*"}
+	corsConfig.AllowMethods = []string{"*"}
+	corsConfig.AllowHeaders = []string{"Origin"}
+	corsConfig.ExposeHeaders = []string{"Content-Length"}
 	corsConfig.AllowCredentials = true
 
 	server.Use(cors.New(corsConfig))
